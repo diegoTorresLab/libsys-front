@@ -1,0 +1,65 @@
+:host {
+    font-family: "Outfit", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #EAE0C8;
+    padding: 15px 40px;
+    border-radius: 14px;
+    box-shadow: 0 3px 8px #0000000d;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    background-color: #536878;
+    padding: 10px;
+    border-radius: 12px;
+    i{
+        color: #EAE0C8;
+    }
+}
+
+.title-section h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.title-section p {
+    margin: 2px 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.header-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    font-family: 'Outfit', sans-serif;
+    background: #536878;
+    border: none;   
+    font-weight: 500;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #EAE0C8;
+    width: 100px;
+    height: 50px;
+    &:hover {
+        background-color: #EAE0C8;
+        color: #536878;
+        transition: all 0.3s ease;
+        border: 4px solid;
+    }
+}
+
