@@ -1,4 +1,4 @@
-.empty-state {
+.error-state {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,19 +7,18 @@
     height: 80vh;
 }
 
-.empty-state h2{
+.error-state h2{
     font-weight: 600;
     color: #222;
 }
 
-.empty-state p{
+.error-state p{
     color: #EAE0C8;
     font-size: 1.4rem;
     margin: 5px;
 }
 
-.empty-state img{
+.error-state img{
     width: 350px;
     opacity: 0.9; 
 }
-
