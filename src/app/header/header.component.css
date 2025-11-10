@@ -5,11 +5,10 @@
     justify-content: space-between;
     background: #EAE0C8;
     padding: 15px 40px;
-    border-radius: 14px;
     box-shadow: 0 3px 8px #0000000d;
 }
 
-.header-left {
+.header-izquierda {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -25,14 +24,14 @@
     }
 }
 
-.title-section h1 {
+.seccion-titulo h1 {
     margin: 0;
     font-size: 1.6rem;
     font-weight: 700;
     color: #333;
 }
 
-.title-section p {
+.seccion-titulo p {
     margin: 2px 0;
     color: #666;
     font-size: 0.9rem;

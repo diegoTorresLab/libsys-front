@@ -1,7 +1,10 @@
 import { Routes } from '@angular/router';
-import { NoEncontradoComponent } from './no-encontrado/no-encontrado.component';
+import { NothingSelectedComponent } from './nothing-selected/nothing-selected.component';
 
 export const routes: Routes = [
     {
+        path: '',
+        component: NothingSelectedComponent,
+        title: 'LibSys - Inicio'
     }
 ];
