@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './author-form.component.css'
 })
 export class AuthorFormComponent {
+  constructor() {
 
+  }
 }

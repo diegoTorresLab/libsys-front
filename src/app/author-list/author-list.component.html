@@ -1,4 +1,5 @@
 <p-toast position="bottom-right"></p-toast>
+<p-confirm-dialog/>
 
 <div class="card">
     <p-table
@@ -20,11 +21,11 @@
                     #filterInput
                     />
             </span>
-            <button 
-                pButton 
+            <button
+                pButton
                 icon="pi pi-plus"
                 class="p-button-text p-btn-create"
-                (click)="createAuthors()"
+                [routerLink]="['autor-form']"
             >Crear nuevo</button>
         </div>
     </ng-template>
@@ -62,20 +63,20 @@
                 pButton
                 icon="pi pi-pencil"
                 class="p-button-text"
-                (click)="updateAuthors(author.idAutor)"
+                [routerLink]="['autor-form', author.idAutor]"
             ></button>
             <button
                 pButton
                 icon="pi pi-trash"
                 class="p-button-text"
-                (click)="deleteAuthors(author.idAutor)"
+                (click)="confirmation($event, author.idAutor)"
             ></button>
             </td>
         </tr>
     </ng-template>
     <ng-template #emptymessage>
         <tr>
-            <td colspan="4" class="text-center">No se encontraron autores.</td>
+            <td colspan="4" class="text-center">No hay disponibles autores, Inicia a crear tus autores</td>
         </tr>
     </ng-template>
     </p-table>
