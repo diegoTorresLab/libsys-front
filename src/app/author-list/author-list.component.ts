@@ -56,6 +56,12 @@ export class AuthorListComponent implements OnInit {
       life: 3000,
     });
   }
+
+  createAuthors(){
+    //TODO: Implement create by id logic
+    console.log('Author created');
+  }
+
   getAuthorsById(id: string){
     //TODO: Implement get by id logic
     console.log('Update author with id:', id);

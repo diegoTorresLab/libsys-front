@@ -11,15 +11,21 @@
     <ng-template #caption>
         <div class="filter flex justify-end p-2">
             <span class="p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input
-                pInputText
-                type="text"
-                (input)="dt.filterGlobal(filterInput.value, 'contains')"
-                placeholder="Buscar autor..."
-                #filterInput
-                />
+                <i class="pi pi-search"></i>
+                <input
+                    pInputText
+                    type="text"
+                    (input)="dt.filterGlobal(filterInput.value, 'contains')"
+                    placeholder="Buscar autor..."
+                    #filterInput
+                    />
             </span>
+            <button 
+                pButton 
+                icon="pi pi-plus"
+                class="p-button-text p-btn-create"
+                (click)="createAuthors()"
+            >Crear nuevo</button>
         </div>
     </ng-template>
     <ng-template #header>
