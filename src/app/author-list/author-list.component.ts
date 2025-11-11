@@ -8,7 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { Toast } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { Ripple } from 'primeng/ripple';
+
 
 @Component({
   selector: 'app-author-list',
@@ -56,6 +56,10 @@ export class AuthorListComponent implements OnInit {
       life: 3000,
     });
   }
+  getAuthorsById(id: string){
+    //TODO: Implement get by id logic
+    console.log('Update author with id:', id);
+  }
 
   updateAuthors(id: string) {
     // TODO: Implement update logic, perhaps navigate to edit form
@@ -63,25 +67,7 @@ export class AuthorListComponent implements OnInit {
   }
 
   deleteAuthors(id: string) {
-    this.authorService.deleteAuthors(id).subscribe({
-      next: () => {
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Éxito',
-          detail: 'Autor eliminado correctamente',
-          life: 3000,
-        });
-        this.getAuthors(); // Refresh the list
-      },
-      error: (err) => {
-        console.log(err);
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Error',
-          detail: 'Error al eliminar autor',
-          life: 3000,
-        });
-      },
-    });
+    //TODO: Implement delete logic
+    console.log('Delete author with id:', id);
   }
 }

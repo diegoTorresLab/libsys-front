@@ -1,0 +1,124 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EAE0C8;
+    width: 90%;
+    height: fit-content;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(31, 31, 31, 0.245);
+    font-family: 'Outfit', sans-serif;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+:host .card{
+    width: 100%;
+}
+
+:host ::ng-deep .p-datatable {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid #536878;
+    background-color: #EAE0C8;
+    color: #536878;
+}
+
+:host ::ng-deep .p-datatable-header {
+    background-color: #536878;
+    color: #EAE0C8;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 3px solid #536878;
+}
+
+:host ::ng-deep .p-datatable-thead > tr > th {
+    background-color: #536878;
+    color: #EAE0C8;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid #EAE0C8;
+}
+
+:host ::ng-deep p-sortIcon{
+    margin-left: 1rem;
+}
+
+:host ::ng-deep .p-datatable-thead > tr > th:hover{
+    background-color: #EAE0C8;
+    color: #536878;
+}  
+
+:host ::ng-deep .p-datatable-sortable-column p-datatable-column-sorted{
+    background-color: #EAE0C8;
+    color: #536878;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr {
+    background-color: #EAE0C8;
+    color: #536878;
+    transition: all 0.2s ease;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr:hover {
+    background-color: #d8c9a8;
+    transform: scale(1.01);
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #536878;
+}
+
+:host ::ng-deep .p-datatable-tbody > tr > td button {
+    background-color: #EAE0C8;
+    color: #536878;
+    border: 2px solid #536878;
+}
+:host ::ng-deep .p-datatable-tbody > tr > td button:hover {
+    background-color: #536878;
+    color: #EAE0C8;
+}
+
+:host ::ng-deep .p-inputtext {
+    border-radius: 9px;
+    border: 1px solid #536878;
+    background-color: transparent;
+    color: #EAE0C8;
+    font-family: 'Outfit', sans-serif;
+    margin-left: 1rem;
+}
+
+:host ::ng-deep .p-inputtext:focus {
+    border: 2px solid #EAE0C8;
+}
+
+:host ::ng-deep .p-datatable-emptymessage > td {
+    text-align: center;
+    color: #EAE0C8;
+    font-weight: 500;
+}
+
+:host ::ng-deep .card .p-paginator{
+    background-color: #536878;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page {
+    color: #536878;
+    border-radius: 8px;
+    border: 3px solid #536878;
+    background-color: #EAE0C8;
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+}
+
+:host ::ng-deep .p-paginator .p-paginator-pages .p-paginator-page:hover{
+    border: 3px solid #EAE0C8;
+    background-color: #536878;
+    color: #EAE0C8;
+}

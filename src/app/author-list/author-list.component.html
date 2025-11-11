@@ -6,10 +6,10 @@
         [value]="author"
         [paginator]="true"
         [rows]="10"
-        [globalFilterFields]="['nombre', 'apellido', 'paisOrigen']"
+        [globalFilterFields]="['ID','nombre', 'apellido', 'paisOrigen']"
     >
     <ng-template #caption>
-        <div class="flex justify-end p-2">
+        <div class="filter flex justify-end p-2">
             <span class="p-input-icon-left">
             <i class="pi pi-search"></i>
             <input
@@ -24,6 +24,9 @@
     </ng-template>
     <ng-template #header>
         <tr>
+            <th>
+                ID 
+            </th>
             <th pSortableColumn="nombre">
                 Nombre <p-sortIcon field="nombre"></p-sortIcon>
             </th>
@@ -38,10 +41,17 @@
     </ng-template>
     <ng-template #body let-author>
         <tr>
+            <td>{{ author.idAutor }}</td>
             <td>{{ author.nombre }}</td>
             <td>{{ author.apellido }}</td>
             <td>{{ author.paisOrigen }}</td>
             <td>
+            <button 
+                pButton 
+                icon="pi pi-id-card"
+                class="p-button-text"
+                (click)="getAuthorsById(author.idAutor)">
+            </button>
             <button
                 pButton
                 icon="pi pi-pencil"
@@ -51,7 +61,7 @@
             <button
                 pButton
                 icon="pi pi-trash"
-                class="p-button-text p-button-danger"
+                class="p-button-text"
                 (click)="deleteAuthors(author.idAutor)"
             ></button>
             </td>
