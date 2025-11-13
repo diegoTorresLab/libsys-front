@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, DestroyRef } from '@angular/core';
 import { Author } from './author.model';
 import { AuthorService } from './author.service';
 import { TableModule } from 'primeng/table';
@@ -6,9 +6,10 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
-import { Toast } from 'primeng/toast';
+import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { AuthorFormComponent } from './author-form/author-form.component';
 
 @Component({
   selector: 'app-author-list',
@@ -18,8 +19,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
     CommonModule,
     ButtonModule,
     RouterModule,
-    Toast,
+    ToastModule,
     ConfirmDialogModule,
+    AuthorFormComponent
   ],
 
   providers: [MessageService, ConfirmationService],
@@ -28,19 +30,20 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 })
 export class AuthorListComponent implements OnInit {
   author: Author[] = [];
+  visibleForm = false;
+  selectedAuthor: Author | null = null;
 
-  constructor(
-    private authorService: AuthorService,
-    private messageService: MessageService,
-    private confirmationService: ConfirmationService
-  ) {}
+  private authorService = inject(AuthorService);
+  private messageService = inject(MessageService);
+  private confirmationService = inject(ConfirmationService);
+  private destroyRef = inject(DestroyRef);
 
   ngOnInit(): void {
     this.getAuthors();
   }
 
   getAuthors() {
-    this.authorService.getAuthors().subscribe({
+    const subscription = this.authorService.getAuthors().subscribe({
       next: (data) => {
         this.author = data;
       },
@@ -49,6 +52,7 @@ export class AuthorListComponent implements OnInit {
         this.showError();
       },
     });
+    this.destroyRef.onDestroy(() => subscription.unsubscribe());
   }
 
   showError() {
@@ -60,23 +64,8 @@ export class AuthorListComponent implements OnInit {
     });
   }
 
-  createAuthors() {
-    //TODO: Implement create by id logic
-    console.log('Author created');
-  }
-
-  getAuthorsById(id: string) {
-    //TODO: Implement get by id logic
-    console.log('Update author with  id:', id);
-  }
-
-  updateAuthors(id: string) {
-    // TODO: Implement update logic, perhaps navigate to edit form
-    console.log('Update author with id:', id);
-  }
-
   deleteAuthors(idAutor: string){
-    this.authorService.deleteAuthors(idAutor).subscribe({
+    const subscription = this.authorService.deleteAuthors(idAutor).subscribe({
       next: () => {
         this.messageService.add({
           severity: 'success',
@@ -92,7 +81,8 @@ export class AuthorListComponent implements OnInit {
           detail: 'No se pudo eliminar el autor',
         });
       },
-    })
+    });
+    this.destroyRef.onDestroy(() => subscription.unsubscribe());
   }
 
   confirmation(event: Event, idAutor: string) {
@@ -123,5 +113,20 @@ export class AuthorListComponent implements OnInit {
         });
       },
     });
+  }
+
+  openNewAuthor(author?: Author){
+    this.selectedAuthor = author || null;
+    this.visibleForm = true;
+  }
+
+  editAuthor(author?: Author){
+    this.selectedAuthor = author || null;
+    this.visibleForm = true;
+  }
+
+  closeDialog(){
+    this.visibleForm = false;
+    this.getAuthors();
   }
 }

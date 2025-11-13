@@ -25,7 +25,7 @@
                 pButton
                 icon="pi pi-plus"
                 class="p-button-text p-btn-create"
-                [routerLink]="['autor-form']"
+                (click)="openNewAuthor()"
             >Crear nuevo</button>
         </div>
     </ng-template>
@@ -57,13 +57,13 @@
                 pButton 
                 icon="pi pi-id-card"
                 class="p-button-text"
-                (click)="getAuthorsById(author.idAutor)">
+                >
             </button>
             <button
                 pButton
                 icon="pi pi-pencil"
                 class="p-button-text"
-                [routerLink]="['autor-form', author.idAutor]"
+                (click)="editAuthor(author)"
             ></button>
             <button
                 pButton
@@ -80,4 +80,9 @@
         </tr>
     </ng-template>
     </p-table>
+    <app-author-form
+        [visible]="visibleForm"
+        [selectedAuthor]="selectedAuthor"
+        (onClose)="closeDialog()"
+    ></app-author-form>
 </div>

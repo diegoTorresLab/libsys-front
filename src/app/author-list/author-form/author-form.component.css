@@ -1,0 +1,99 @@
+:host ::ng-deep .p-dialog {
+    background-color: #536878;
+}
+
+:host .field-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+:host .field-vertical label {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+:host .solo{
+    width: 35.5%;
+    margin-left: 3.8rem;
+}
+
+:host .control{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+:host .card{
+    background-color: #EAE0C8;
+    color: #536878;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+:host ::ng-deep .p-inputtext {
+    border-radius: 9px;
+    border: 1px solid #536878;
+    color: #536878;
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+}
+
+:host ::ng-deep .p-inputtext:hover {
+    border: 3px solid #536878;
+}
+
+:host ::ng-deep .p-disabled {
+    background-color: #d8c9a8 !important;
+    color: #6c757d;
+    border: 2px solid #536878
+}
+
+:host ::ng-deep .p-dialog-header {
+    color: #EAE0C8;
+}
+
+:host .field-textarea{
+    margin: 0.5rem 3.8rem 0 3.8rem;
+}
+
+:host textarea{
+    border-radius: 9px;
+    width: 100%;
+    border: 1px solid #536878;
+    color: #536878;
+    font-family: 'Outfit', sans-serif;
+    background-color: #EAE0C8;
+}
+
+:host textarea:hover {
+    border: 3px solid #536878;
+}
+
+:host ::ng-deep .p-dialog .p-button{
+    margin-top: 1.5rem;
+}
+
+:host ::ng-deep .p-dialog .p-button-secondary{
+    background-color: #536878;
+    border: none;
+}
+
+:host ::ng-deep .p-dialog .p-button-secondary:hover{
+    background-color: #EAE0C8;
+    color: #536878;
+    border: 2px solid #536878;
+    transform: scale(1.01);
+}
+
+:host ::ng-deep .p-dialog .p-button-primary{
+    background-color: #276b0e;
+    color: #EAE0C8;
+    border: none;
+}
+
+:host ::ng-deep .p-dialog .p-button-primary:hover{
+    background-color: #EAE0C8;
+    color: #276b0e;
+    border: 2px solid #276b0e;
+    transform: scale(1.01);
+}

@@ -1,1 +1,57 @@
-<p>author-form works!</p>
+<p-toast/>
+
+<p-dialog 
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+    header="{{ selectedAuthor ? 'Actualizar Autor' : 'Nuevo Autor'}}"
+    (onHide)="closedDialog()"
+>
+    <div class="card">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="p-field field-vertical solo">
+                <label for="idAutor">ID Autor</label>
+                <input id="idAutor" type="text" pInputText formControlName="idAutor" [disabled]="true" class="p-disabled"/>
+            </div>
+
+            <div class="flex gap-2 control">
+                <div class="p-field field-vertical">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" pInputText formControlName="nombre" />
+                </div>
+
+                <div class="p-field field-vertical">
+                    <label for="apellido">Apellido</label>
+                    <input id="apellido" type="text" pInputText formControlName="apellido" />
+                </div>
+            </div>
+
+            <div class="flex gap-2 control">
+                <!-- País de origen -->
+                <div class="p-field field-vertical">
+                    <label for="paisOrigen">País de origen</label>
+                    <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
+                </div>
+                <!-- Fecha de registro (solo visible, no editable) -->
+                <div class="p-field field-vertical">
+                    <label for="fechaRegistro">Fecha de registro</label>
+                    <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
+                </div>
+            </div>
+
+            <!-- Biografía -->
+            <div class="p-field field-vertical field-textarea">
+                <label for="biografia">Biografía</label> 
+                <textarea  class="textarea" id="biografia" rows="6" pInputTextarea formControlName="biografia"></textarea>
+            </div>
+
+            <div class="p-dialog-footer flex justify-end gap-2">
+                <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="closedDialog()"></button>
+                <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+            </div>
+        </form>
+    </div>
+</p-dialog>

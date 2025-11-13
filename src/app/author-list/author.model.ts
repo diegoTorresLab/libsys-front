@@ -1,8 +1,8 @@
 export interface Author{
-    idAutor: string;
-    nombre: string;
-    apellido: string;
-    paisOrigen: string;
-    biografia: string;
-    fechaRegistro: string;
+    idAutor: string | null;
+    nombre: string | null;
+    apellido: string | null;
+    paisOrigen: string | null;
+    biografia: string | null;
+    fechaRegistro: string | null;
 }
