@@ -40,13 +40,13 @@ export class AuthorFormComponent implements OnInit {
   form = new FormGroup({
     idAutor: new FormControl<string | null>({value: null, disabled: true}),
     nombre: new FormControl('', {
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.minLength(2)],
     }),
     apellido: new FormControl('', {
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.minLength(2)],
     }),
     paisOrigen: new FormControl('', {
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.minLength(4)],
     }),
     biografia: new FormControl('', {
       validators: [Validators.required],

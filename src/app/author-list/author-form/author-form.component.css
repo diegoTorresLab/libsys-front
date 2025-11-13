@@ -42,6 +42,11 @@
     border: 3px solid #536878;
 }
 
+:host ::ng-deep .p-inputtext:has(.p-inputtext.p-component.ng-dirty.ng-touched.ng-invalid){
+    border: 3px solid #902009;
+    background-color: #e5beb5
+}
+
 :host ::ng-deep .p-disabled {
     background-color: #d8c9a8 !important;
     color: #6c757d;
@@ -75,6 +80,7 @@
 
 :host ::ng-deep .p-dialog .p-button-secondary{
     background-color: #536878;
+    color: #EAE0C8;
     border: none;
 }
 
