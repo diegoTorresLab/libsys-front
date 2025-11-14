@@ -1,4 +1,4 @@
-import { Component, inject,  OnInit, DestroyRef, Input, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
+import { Component, inject, DestroyRef, Input, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -13,7 +13,6 @@ import { RouterModule } from '@angular/router';
 import { Author } from '../author.model';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
-
 @Component({
   selector: 'app-author-form',
 
@@ -55,15 +54,14 @@ export class AuthorFormComponent implements OnChanges {
   });
 
   ngOnChanges(changes: SimpleChanges): void {
-      if(changes['selectedAuthor']){
-        const author = changes['selectedAuthor'].currentValue;
-
-        if(author){
-          this.form.patchValue(author);
-        }else{
-          this.form.reset()
-        }
+    if(changes['selectedAuthor']){
+      const author = changes['selectedAuthor'].currentValue;
+      if(author){
+        this.form.patchValue(author);
+      }else{
+        this.form.reset()
       }
+    }
   }
   onSubmit(){
     if(this.formIsInvalid()){
@@ -131,4 +129,4 @@ export class AuthorFormComponent implements OnChanges {
     this.form.reset();
     this.onClose.emit();
   }
-}
+} 

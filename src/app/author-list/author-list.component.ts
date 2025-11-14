@@ -10,6 +10,7 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { AuthorFormComponent } from './author-form/author-form.component';
+import { AuthorCardComponent } from './author-card/author-card.component';
 
 @Component({
   selector: 'app-author-list',
@@ -21,7 +22,8 @@ import { AuthorFormComponent } from './author-form/author-form.component';
     RouterModule,
     ToastModule,
     ConfirmDialogModule,
-    AuthorFormComponent
+    AuthorFormComponent,
+    AuthorCardComponent
   ],
 
   providers: [MessageService, ConfirmationService],
@@ -31,6 +33,7 @@ import { AuthorFormComponent } from './author-form/author-form.component';
 export class AuthorListComponent implements OnInit {
   author: Author[] = [];
   visibleForm = false;
+  visibleCard = false;
   selectedAuthor: Author | null = null;
 
   private authorService = inject(AuthorService);
@@ -108,18 +111,24 @@ export class AuthorListComponent implements OnInit {
     });
   }
 
-  openNewAuthor(author?: Author){
+  createAuthor(author?: Author){
     this.selectedAuthor = author || null;
     this.visibleForm = true;
   }
 
-  editAuthor(author?: Author){
+  updateAuthors(author?: Author){
     this.selectedAuthor = author || null;
     this.visibleForm = true;
+  }
+
+  getAuthorsById(author?: Author){
+    this.selectedAuthor = author!;
+    this.visibleCard = true;
   }
 
   closeDialog(){
     this.visibleForm = false;
+    this.visibleCard = false;
     this.getAuthors();
   }
 }
