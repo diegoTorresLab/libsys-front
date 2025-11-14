@@ -1,4 +1,4 @@
-import { Component, inject,  OnInit, DestroyRef, Input, Output, EventEmitter} from '@angular/core';
+import { Component, inject,  OnInit, DestroyRef, Input, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -28,7 +28,7 @@ import { InputTextModule } from 'primeng/inputtext';
   templateUrl: './author-form.component.html',
   styleUrl: './author-form.component.css',
 })
-export class AuthorFormComponent implements OnInit {
+export class AuthorFormComponent implements OnChanges {
   @Input() visible = false;
   @Input () selectedAuthor: Author | null = null; 
   @Output() onClose = new EventEmitter<void>();
@@ -54,11 +54,17 @@ export class AuthorFormComponent implements OnInit {
     fechaRegistro: new FormControl<string | null>({value: null, disabled: true}),
   });
 
-  ngOnInit(): void {
-    const author = this.selectedAuthor;
-    if (author) this.form.patchValue(author);
-  }
+  ngOnChanges(changes: SimpleChanges): void {
+      if(changes['selectedAuthor']){
+        const author = changes['selectedAuthor'].currentValue;
 
+        if(author){
+          this.form.patchValue(author);
+        }else{
+          this.form.reset()
+        }
+      }
+  }
   onSubmit(){
     if(this.formIsInvalid()){
       this.form.markAllAsTouched();

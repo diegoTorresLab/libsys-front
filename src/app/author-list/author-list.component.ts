@@ -46,7 +46,7 @@ export class AuthorListComponent implements OnInit {
     const subscription = this.authorService.getAuthors().subscribe({
       next: (data) => {
         this.author = data;
-      },
+        },
       error: (err) => {
         console.log(err);
         this.showError();
@@ -104,13 +104,6 @@ export class AuthorListComponent implements OnInit {
 
       accept: () => {   
         this.deleteAuthors(idAutor);
-      },
-      reject: () => {
-        this.messageService.add({
-          severity: 'error',
-          summary: 'Rejected',
-          detail: 'You have rejected',
-        });
       },
     });
   }

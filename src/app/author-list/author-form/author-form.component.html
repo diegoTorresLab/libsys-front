@@ -30,19 +30,16 @@
             </div>
 
             <div class="flex gap-2 control">
-                <!-- País de origen -->
                 <div class="p-field field-vertical">
                     <label for="paisOrigen">País de origen</label>
                     <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
                 </div>
-                <!-- Fecha de registro (solo visible, no editable) -->
                 <div class="p-field field-vertical">
                     <label for="fechaRegistro">Fecha de registro</label>
                     <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
                 </div>
             </div>
 
-            <!-- Biografía -->
             <div class="p-field field-vertical field-textarea">
                 <label for="biografia">Biografía</label> 
                 <textarea  class="textarea" id="biografia" rows="6" pInputTextarea formControlName="biografia"></textarea>
