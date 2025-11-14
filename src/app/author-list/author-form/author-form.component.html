@@ -40,9 +40,15 @@
 
             <div class="p-field field-vertical field-textarea">
                 <label for="biografia">Biografía</label> 
-                <textarea  class="textarea" id="biografia" rows="6" pInputTextarea formControlName="biografia"></textarea>
-            </div>
+                <textarea class="textarea" id="biografia" rows="6" pInputTextarea formControlName="biografia"></textarea>
+            </div>  
 
+            @if (formIsInvalid()) {
+                <div class="error">
+                    <p>El formulario contiene campos inválidos o incompletos. Por favor revisa los datos antes de continuar.</p>
+                </div>
+            }
+            
             <div class="p-dialog-footer flex justify-end gap-2">
                 <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="closedDialog()"></button>
                 <button pButton type="submit" label="Guardar" class="p-button-primary"></button>

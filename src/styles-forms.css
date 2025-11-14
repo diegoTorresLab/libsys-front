@@ -1,7 +1,8 @@
 /* --------------------------------------------------
     ESTILOS DE FORMULARIOS
 -------------------------------------------------- */
-.p-dialog .p-inputtext {
+
+.p-dialog .p-inputtext{
     border-radius: 9px;
     border: 1px solid var(--color-bg-primary);
     background-color: var(--color-bg-secondary);
@@ -10,17 +11,18 @@
     margin: 0;
 }
 
-.p-dialog .p-inputtext:focus{
+.p-dialog .p-inputtext:hover{
     border: 3px solid var(--color-bg-primary);
 }
 
-.p-dialog .p-inputtext:hover {
-    border: 3px solid var(--color-bg-primary);
+.p-inputtext.ng-invalid.ng-dirty.ng-touched {
+    border:  #902009 3px solid;
+    background-color: #e5beb5;
 }
 
 .p-dialog .p-disabled {
     background-color: #d8c9a8 !important;
-    color: #6c757d;
+    color: #53585c !important;
     border: 2px solid var(--color-bg-primary);
 }
 
@@ -30,6 +32,19 @@
 
 .p-dialog .p-button {
     margin-top: 1.5rem;
+}
+
+.p-dialog .error{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    background-color: var(--color-danger);
+    color: #e5beb5;
+    margin: 0 3.8rem 0 3.8rem;
+    border-radius: 9px;
+    padding: 0 1rem 0 1rem;
+    margin-top: 1rem;
+    animation: var(--animation);
 }
 
 .p-dialog .p-dialog-footer .p-button-secondary {

@@ -20,7 +20,7 @@ import { ButtonModule } from 'primeng/button';
 })
 export class AuthorCardComponent{
   @Input() visible = false;
-  @Input() selectedAuthor!: Author;
+  @Input() selectedAuthor: Author | null = null;
   @Output() onClosed = new EventEmitter<void>();
 
   closedDialog(){

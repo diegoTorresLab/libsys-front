@@ -1,4 +1,4 @@
-.p-dialog {
+:host ::ng-deep .p-dialog {
     background-color: var(--color-bg-primary);
 }
 

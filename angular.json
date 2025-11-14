@@ -28,6 +28,8 @@
             ],
             "styles": [
               "src/styles.css",
+              "src/styles-tables.css",
+              "src/styles-forms.css",
               "node_modules/primeflex/primeflex.css",
               "node_modules/primeicons/primeicons.css"
             ],

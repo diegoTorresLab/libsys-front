@@ -122,7 +122,7 @@ export class AuthorListComponent implements OnInit {
   }
 
   getAuthorsById(author?: Author){
-    this.selectedAuthor = author!;
+    this.selectedAuthor = author || null;
     this.visibleCard = true;
   }
 

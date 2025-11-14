@@ -9,17 +9,17 @@
     <ng-template pTemplate="header">
         <div class="author-header">
             <h2 class="author-name">
-                {{ selectedAuthor.nombre }} {{ selectedAuthor.apellido }}
+                {{ selectedAuthor?.nombre }} {{ selectedAuthor?.apellido }}
             </h2>
             <span class="author-country">
-                {{ selectedAuthor.paisOrigen }}
+                {{ selectedAuthor?.paisOrigen }}
             </span>
         </div>
     </ng-template>
     <div class="card">
         <h3>Biografía</h3>
         <div>
-            <p class="bio">{{selectedAuthor.biografia}}</p>
+            <p class="bio">{{selectedAuthor?.biografia}}</p>
         </div>
     </div>
 </p-dialog>

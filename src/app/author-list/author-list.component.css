@@ -15,3 +15,18 @@
 :host .card{
     width: 100%;
 }
+/*
+:host ::ng-deep .p-confirm-dialog .p-dialog-content {
+  background-color: var(--color-bg-secondary);
+}
+
+:host ::ng-deep .p-confirm-dialog .p-dialog-header {
+  background-color: var(--color-bg-primary);
+  color: var(--color-bg-secondary);
+}
+
+:host ::ng-deep .p-confirm-dialog .p-dialog-footer .p-button {
+  border-radius: 8px;
+  font-family: 'Outfit', sans-serif;
+}
+*/
