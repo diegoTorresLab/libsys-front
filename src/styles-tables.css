@@ -1,0 +1,124 @@
+/* --------------------------------------------------
+    ESTILOS DE TABLAS
+-------------------------------------------------- */
+.p-datatable {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--color-bg-primary);
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+}
+
+.p-datatable .p-datatable-header {
+    background-color: #536878;
+    color: #EAE0C8;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: center;
+    border-bottom: 3px solid #536878;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+    background-color: var(--color-bg-primary);
+    color: var(--color-bg-secondary);
+    font-weight: 600;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid var(--color-bg-secondary);
+}
+
+p-sortIcon{
+    margin-left: 1rem;
+}
+
+.p-datatable .p-datatable-thead > tr > th:hover{
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+}
+
+.p-datatable .p-datatable-thead > tr > th .p-datatable-sortable-column .p-datatable-column-sorted{
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+}
+
+.p-datatable .p-datatable-tbody > tr {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+    transition: all 0.2s ease;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
+    background-color: #d8c9a8;
+    transform: scale(1.01);
+}
+
+.p-datatable-tbody > tr > td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--color-bg-primary);
+}
+
+.p-datatable .p-datatable-tbody > tr > td button {
+    background-color: var(--color-bg-primary);
+    color: var(--color-bg-secondary);
+    margin: 0.1rem;
+}
+
+.p-datatable .p-datatable-tbody > tr > td button:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+    border: 2px solid var(--color-bg-primary);
+    transform: scale(1.01);
+}
+
+.p-datatable .p-datatable-header .p-inputtext {
+    border-radius: 9px;
+    border: 1px solid var(--color-bg-primary);
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+    font-family: 'Outfit', sans-serif;
+    margin-left: 1rem;
+}
+
+.p-datatable .p-datatable-header .p-inputtext:hover {
+    border: 2px solid var(--color-bg-secondary);
+}
+
+.p-datatable .p-datatable-header .p-btn-create {
+    margin-left: 1rem;
+    border-radius: 9px;
+    border: 1px solid var(--color-bg-primary);
+    color: var(--color-bg-secondary);
+}
+
+.p-datatable .p-datatable-header .p-btn-create:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+}
+
+.p-datatable .p-datatable-emptymessage > td {
+    text-align: center;
+    color: var(--color-bg-secondary);
+    font-weight: 500;
+}
+
+.card .p-paginator {
+    background-color: var(--color-bg-primary);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+    color: var(--color-bg-primary);
+    border-radius: 8px;
+    border: 3px solid var(--color-bg-primary);
+    background-color: var(--color-bg-secondary);
+    transition: all 0.2s ease;
+    font-family: 'Outfit', sans-serif;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page:hover {
+    border: 3px solid var(--color-bg-secondary);
+    background-color: var(--color-bg-primary);
+    color: var(--color-bg-secondary);
+}
