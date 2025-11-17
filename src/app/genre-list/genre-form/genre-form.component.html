@@ -1,0 +1,37 @@
+<p-dialog 
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+    header="{{ selectedGenre ? 'Actualizar Genero' : 'Nuevo Genero' }}"
+    (onHide)="closedDialog()"
+>
+    <div class="card">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="flex gap-2 control">
+                <div class="p-field field-vertical">
+                    <label for="idGenero">ID Genero</label>
+                    <input id="idGenero" type="text" pInputText formControlName="idGenero" [disabled]="true" class="p-disabled"/>
+                </div>
+
+                <div class="p-field field-vertical">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" pInputText formControlName="nombre" [disabled]="true" class="p-disabled"/>
+                </div>
+            </div>
+
+            @if (formIsInvalid()) {
+                <div class="error">
+                    <p>El formulario contiene campos inválidos o incompletos. Por favor revisa los datos antes de continuar.</p>
+                </div>
+            }
+            
+            <div class="p-dialog-footer flex justify-end gap-2">
+                <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="closedDialog()"></button>
+                <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+            </div>
+        </form>
+    </div>
+</p-dialog>

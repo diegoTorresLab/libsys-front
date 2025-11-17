@@ -1,0 +1,31 @@
+:host ::ng-deep .p-dialog {
+    background-color: var(--color-bg-primary);
+}
+
+:host .field-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+:host .field-vertical label {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+:host .solo{
+    width: 35.5%;
+    margin-left: 3.8rem;
+}
+
+:host .control{
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+:host .card{
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+    border-radius: 5px;
+    padding: 1rem;
+}
