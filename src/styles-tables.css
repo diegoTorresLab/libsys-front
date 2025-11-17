@@ -11,12 +11,12 @@
 }
 
 .p-datatable .p-datatable-header {
-    background-color: #536878;
-    color: #EAE0C8;
+    background-color: var(--color-bg-primary);
+    color: var(--color-bg-secondary);
     font-size: 1.25rem;
     font-weight: 600;
     text-align: center;
-    border-bottom: 3px solid #536878;
+    border-bottom: 3px solid var(--color-bg-primary);
 }
 
 .p-datatable .p-datatable-thead > tr > th {

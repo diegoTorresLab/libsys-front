@@ -14,7 +14,7 @@
 }
 
 .error-state p{
-    color: #EAE0C8;
+    color: var(--color-bg-secondary);
     font-size: 1.4rem;
     margin: 5px;
 }

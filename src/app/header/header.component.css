@@ -3,7 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #EAE0C8;
+    background: var(--color-bg-secondary);
     padding: 15px 40px;
     box-shadow: 0 3px 8px #0000000d;
 }
@@ -16,11 +16,11 @@
 
 .logo {
     font-size: 1.5rem;
-    background-color: #536878;
+    background-color: var(--color-bg-primary);
     padding: 10px;
     border-radius: 12px;
     i{
-        color: #EAE0C8;
+        color: var(--color-bg-secondary);
         &:hover{
             cursor: pointer;
         }
@@ -50,19 +50,19 @@
 
 .nav-btn {
     font-family: 'Outfit', sans-serif;
-    background: #536878;
+    background: var(--color-bg-primary);
     border: none;   
     font-weight: 500;
     font-size: 15px;
     padding: 6px 12px;
     border-radius: 6px;
     cursor: pointer;
-    color: #EAE0C8;
+    color: var(--color-bg-secondary);
     width: 100px;
     height: 50px;
     &:hover {
-        background-color: #EAE0C8;
-        color: #536878;
+        background-color: var(--color-bg-secondary);
+        color: var(--color-bg-primary);
         transition: all 0.3s ease;
         border: 4px solid;
     }

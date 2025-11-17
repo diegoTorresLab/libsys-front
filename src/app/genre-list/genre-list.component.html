@@ -44,7 +44,8 @@
         <tr>
             <td>{{ genre.idGenero }}</td>
             <td>{{ genre.nombre }}</td>
-            <button
+            <td>
+                <button
                 pButton
                 icon="pi pi-pencil"
                 class="p-button-text"
@@ -56,6 +57,7 @@
                 class="p-button-text"
                 (click)="confirmation($event, genre.idGenero)"
             ></button>
+            </td>
         </tr>
     </ng-template>
     <ng-template #emptymessage>
