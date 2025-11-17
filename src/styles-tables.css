@@ -37,9 +37,10 @@ p-sortIcon{
     color: var(--color-bg-primary);
 }
 
-.p-datatable .p-datatable-thead > tr > th .p-datatable-sortable-column .p-datatable-column-sorted{
-    background-color: var(--color-bg-secondary);
-    color: var(--color-bg-primary);
+.p-datatable .p-datatable-thead > tr > th.p-datatable-sortable-column.p-datatable-column-sorted {
+    background-color: #d8c9a8 !important;
+    color: var(--color-bg-primary) !important;
+    border-color: #d8c9a8;
 }
 
 .p-datatable .p-datatable-tbody > tr {

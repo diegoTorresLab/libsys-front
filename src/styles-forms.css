@@ -39,7 +39,7 @@
     justify-content: center;
     height: 80px;
     background-color: var(--color-danger);
-    color: #e5beb5;
+    color: var(--color-bg-secondary);
     margin: 0 3.8rem 0 3.8rem;
     border-radius: 9px;
     padding: 0 1rem 0 1rem;
@@ -72,3 +72,4 @@
     border: 2px solid var(--color-success);
     transform: scale(1.01);
 }
+
