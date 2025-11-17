@@ -10,9 +10,16 @@
 >
     <div class="card">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="p-field field-vertical solo">
-                <label for="idAutor">ID Autor</label>
-                <input id="idAutor" type="text" pInputText formControlName="idAutor" [disabled]="true" class="p-disabled"/>
+            <div class="flex gap-2 control">
+                <div class="p-field field-vertical">
+                    <label for="idAutor">ID Autor</label>
+                    <input id="idAutor" type="text" pInputText formControlName="idAutor" [disabled]="true" class="p-disabled"/>
+                </div>
+
+                <div class="p-field field-vertical">
+                    <label for="fechaRegistro">Fecha de registro</label>
+                    <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
+                </div>
             </div>
 
             <div class="flex gap-2 control">
@@ -27,15 +34,9 @@
                 </div>
             </div>
 
-            <div class="flex gap-2 control">
-                <div class="p-field field-vertical">
-                    <label for="paisOrigen">País de origen</label>
-                    <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
-                </div>
-                <div class="p-field field-vertical">
-                    <label for="fechaRegistro">Fecha de registro</label>
-                    <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
-                </div>
+            <div class="p-field field-vertical solo">
+                <label for="paisOrigen">País de origen</label>
+                <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
             </div>
 
             <div class="p-field field-vertical field-textarea">

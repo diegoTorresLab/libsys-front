@@ -30,7 +30,7 @@ import { InputTextModule } from 'primeng/inputtext';
 export class AuthorFormComponent implements OnChanges {
   @Input() visible = false;
   @Input () selectedAuthor: Author | null = null; 
-  @Output() onClose = new EventEmitter<void>();
+  @Output() onClosed = new EventEmitter<void>();
   
   private authorService = inject(AuthorService);
   private messageService = inject(MessageService);
@@ -94,7 +94,7 @@ export class AuthorFormComponent implements OnChanges {
           this.messageService.add({
             severity: 'error',
             summary: 'Error',
-            detail: 'Ha ocurrido un error al actualizar el autor',
+            detail: 'Ha ocurrido un error al actualizar el autor, por favor intentelo de nuevo',
           });
         }
       });
@@ -113,7 +113,7 @@ export class AuthorFormComponent implements OnChanges {
           this.messageService.add({
             severity: 'error',
             summary: 'Error',
-            detail: 'Ha ocurrido un error al guardar el autor',
+            detail: 'Ha ocurrido un error al guardar el autor, por favor intentelo de nuevo',
           });
         }
       });
@@ -127,6 +127,6 @@ export class AuthorFormComponent implements OnChanges {
 
   closedDialog(){
     this.form.reset();
-    this.onClose.emit();
+    this.onClosed.emit();
   }
 } 

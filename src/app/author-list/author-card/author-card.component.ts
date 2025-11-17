@@ -14,7 +14,8 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     ButtonModule, 
     DialogModule, 
-    RouterModule],
+    RouterModule
+  ],
   templateUrl: './author-card.component.html',
   styleUrl: './author-card.component.css',
 })

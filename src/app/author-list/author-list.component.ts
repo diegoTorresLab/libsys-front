@@ -49,22 +49,17 @@ export class AuthorListComponent implements OnInit {
     const subscription = this.authorService.getAuthors().subscribe({
       next: (data) => {
         this.author = data;
-        },
-      error: (err) => {
-        console.log(err);
-        this.showError();
+      },
+      error: () => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Error al obtener autores',
+          life: 3000,
+        });
       },
     });
     this.destroyRef.onDestroy(() => subscription.unsubscribe());
-  }
-
-  showError() {
-    this.messageService.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: 'Error al obtener autores',
-      life: 3000,
-    });
   }
 
   deleteAuthors(idAutor: string){
@@ -111,12 +106,7 @@ export class AuthorListComponent implements OnInit {
     });
   }
 
-  createAuthor(author?: Author){
-    this.selectedAuthor = author || null;
-    this.visibleForm = true;
-  }
-
-  updateAuthors(author?: Author){
+  openForm(author?: Author){
     this.selectedAuthor = author || null;
     this.visibleForm = true;
   }
