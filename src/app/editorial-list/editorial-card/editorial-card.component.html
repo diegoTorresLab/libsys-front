@@ -1,0 +1,52 @@
+<p-dialog
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+    [style]="{ width: '60vw' }"
+    [draggable]="false"
+    [resizable]="false"
+    (onHide)="closedDialog()">
+    <ng-template pTemplate="header">
+        <div class="author-header">
+            <h2 class="author-name">
+                {{ selectedEditorial?.nombre }}
+            </h2>
+            <span class="author-country">
+                {{ selectedEditorial?.paisOrigen }}
+            </span>
+        </div>
+    </ng-template>
+    <div class="card">
+        <div class="flex gap-3 fields">
+            <div class="info-card">
+                <i class="pi pi-globe"></i>
+                <div class="data">
+                    <span class="label">Sitio Web</span>
+                    <a [href]="selectedEditorial?.sitioWeb | normalizeUrl" target="_blank">
+                        {{ selectedEditorial?.sitioWeb }}
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <i class="pi pi-envelope"></i>
+                <div class="data">
+                    <span class="label">Email</span>
+                    @if(!selectedEditorial?.email){
+                        <p class="empty">No disponible</p>
+                    } @else {
+                        <p> {{ selectedEditorial?.email }}</p>
+                    }
+                </div>
+            </div>
+
+            <div class="info-card">
+                <i class="pi pi-phone"></i>
+                <div class="data">
+                    <span class="label">Teléfono</span>
+                    <p>{{ selectedEditorial?.telefono }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-dialog>

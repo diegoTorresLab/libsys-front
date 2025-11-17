@@ -1,1 +1,94 @@
-<p>editorial-list works!</p>
+<p-toast position="bottom-right"/>
+<p-confirm-dialog/>
+
+<div class="card">
+    <p-table
+        #dt
+        [value]="editorial"
+        [paginator]="true"
+        [rows]="10"
+        [globalFilterFields]="['ID','nombre', 'sitioWeb', 'email']"
+    >
+    <ng-template #caption>
+        <div class="filter flex justify-end p-2">
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input
+                    pInputText
+                    type="text"
+                    (input)="dt.filterGlobal(filterInput.value, 'contains')"
+                    placeholder="Buscar editorial.."
+                    #filterInput
+                    />
+            </span>
+            <button
+                pButton
+                icon="pi pi-plus"
+                class="p-button-text p-btn-create"
+                (click)="openForm()"
+            >Crear nueva</button>
+        </div>
+    </ng-template>
+    <ng-template #header>
+        <tr>
+            <th>
+                ID 
+            </th>
+            <th pSortableColumn="nombre">
+                Nombre <p-sortIcon field="nombre"></p-sortIcon>
+            </th>
+            <th pSortableColumn="sitioWeb">
+                Sitio Web <p-sortIcon field="sitioWeb"></p-sortIcon>
+            </th>
+            <th pSortableColumn="email">
+                Email<p-sortIcon field="email"></p-sortIcon>
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </ng-template>
+    <ng-template #body let-editorial>
+        <tr>
+            <td>{{ editorial.idEditorial }}</td>
+            <td>{{ editorial.nombre }}</td>
+            <td>{{ editorial.sitioWeb }}</td>
+            <td>{{ editorial.email }}</td>
+            <td>
+            <button 
+                pButton 
+                icon="pi pi-exclamation-circle"
+                class="p-button-text"
+                (click)="getEditorialsById(editorial)"
+                >
+            </button>
+            <button
+                pButton
+                icon="pi pi-pencil"
+                class="p-button-text"
+                (click)="openForm(editorial)"
+            ></button>
+            <button
+                pButton
+                icon="pi pi-trash"
+                class="p-button-text"
+                (click)="confirmation($event, editorial.idEditorial)"
+            ></button>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template #emptymessage>
+        <tr>
+            <td colspan="4" class="text-center">No hay editoriales disponibles, empieza a crear tus autores</td>
+        </tr>
+    </ng-template>
+    </p-table>
+    <app-editorial-form
+        [visible]="visibleForm"
+        [selectedEditorial]="selectedEditorial"
+        (onClosed)="closeDialog()"
+    ></app-editorial-form>
+    <app-editorial-card
+        [visible]="visibleCard"
+        [selectedEditorial]="selectedEditorial"
+        (onClosed)="closeDialog()"
+    ></app-editorial-card>
+</div>

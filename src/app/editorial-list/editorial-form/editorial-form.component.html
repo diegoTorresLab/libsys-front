@@ -1,1 +1,66 @@
-<p>editorial-form works!</p>
+<p-dialog 
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+    [style]="{ width: '50vw' }"
+    [draggable]="false"
+    [resizable]="false"
+    header="{{ selectedEditorial ? 'Actualizar Editorial' : 'Nueva Editorial' }}"
+    (onHide)="closedDialog()"
+>
+    <div class="card">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="flex gap-2 control">
+                <div class="p-field field-vertical">
+                    <label for="idEditorial">ID Editorial</label>
+                    <input id="idEditorial" type="text" pInputText formControlName="idEditorial" [disabled]="true" class="p-disabled"/>
+                </div>
+
+                <div class="p-field field-vertical">
+                    <label for="fechaRegistro">Fecha de registro</label>
+                    <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
+                </div>
+            </div>
+
+            <div class="flex gap-2 control">
+                <div class="p-field field-vertical">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" type="text" pInputText formControlName="nombre" />
+                </div>
+
+                <div class="p-field field-vertical">
+                    <label for="sitioWeb">Sitio Web</label>
+                    <input id="sitioWeb" type="text" pInputText formControlName="sitioWeb" />
+                </div>
+            </div>
+
+            <div class="flex gap-2 control">
+                <div class="p-field field-vertical">
+                    <label for="email">Email</label>
+                    <input id="email" type="text" pInputText formControlName="email" />
+                </div>
+
+                <div class="p-field field-vertical">
+                    <label for="telefono">Número de Telefono</label>
+                    <input id="telefono" type="text" pInputText formControlName="telefono" />
+                </div>
+            </div>
+
+            <div class="p-field field-vertical solo">
+                <label for="paisOrigen">País de origen</label>
+                <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
+            </div>
+
+            @if (formIsInvalid()) {
+                <div class="error">
+                    <p>El formulario contiene campos inválidos o incompletos. Por favor revisa los datos antes de continuar.</p>
+                </div>
+            }
+            
+            <div class="p-dialog-footer flex justify-end gap-2">
+                <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="closedDialog()"></button>
+                <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+            </div>
+        </form>
+    </div>
+</p-dialog>

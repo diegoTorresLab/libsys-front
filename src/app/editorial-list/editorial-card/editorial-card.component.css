@@ -1,0 +1,88 @@
+:host ::ng-deep .p-dialog {
+    background-color: var(--color-bg-primary);
+}
+
+.author-header {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.author-name {  
+    margin: 0;
+    font-size: 1.8rem;       
+    font-weight: 600;
+}
+
+.card{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 9px;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+}
+
+.info-card {
+    display: flex;
+    flex: 1;  
+    overflow: hidden; 
+    text-overflow: ellipsis;  
+    min-width: 0;
+    justify-content: left;
+    gap: 0.9rem;
+    padding: 0.8rem 1rem;
+    background-color: var(--color-bg-primary);
+    color: var(--color-bg-secondary);
+    border-radius: 10px;
+}
+
+.data{
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+    border: 2px solid var(--color-bg-primary);
+    transition: all 0.3s ease;
+
+    a{
+        color: var(--color-bg-primary);
+    }
+}
+
+.info-card i {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-top: 3px;
+}
+
+.label {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.info-card a, p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.info-card a {
+    color: var(--color-bg-secondary);
+    text-decoration: none;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.info-card a:hover {
+    text-decoration: underline;
+}
+
+.empty {
+    color: #999;
+    font-style: italic;
+}
