@@ -24,10 +24,6 @@ export class GenreService {
     return this.http.get<Genre[]>(this.apiUrl);
   } 
 
-  getGenresById(idGenero: string): Observable<Genre>{
-    return this.http.get<Genre>(`${this.apiUrl}/${idGenero}`);
-  }
-
   deleteGenres(idGenero: string){
     return this.http.delete(`${this.apiUrl}/${idGenero}`);
   }

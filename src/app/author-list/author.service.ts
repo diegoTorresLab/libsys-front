@@ -24,10 +24,6 @@ export class AuthorService {
     return this.http.get<Author[]>(this.apiUrl);
   }
 
-  getAuthorsById(idAutor:string): Observable<Author>{
-    return this.http.get<Author>(`${this.apiUrl}/${idAutor}`);
-  }
-
   deleteAuthors(idAutor:string){
     return this.http.delete(`${this.apiUrl}/${idAutor}`);
   }

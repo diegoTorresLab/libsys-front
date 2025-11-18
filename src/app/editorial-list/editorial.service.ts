@@ -24,10 +24,6 @@ export class EditorialService {
     return this.http.get<Editorial[]>(this.apiUrl);
   }
 
-  getEditorialsById(idEditorial: string): Observable<Editorial>{
-    return this.http.get<Editorial>(`${this.apiUrl}/${idEditorial}`)
-  }
-
   deleteEditorials(idEditorial: string){
     return this.http.delete(`${this.apiUrl}/${idEditorial}`);
   }
