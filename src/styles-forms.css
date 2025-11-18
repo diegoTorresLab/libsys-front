@@ -73,3 +73,87 @@
     transform: scale(1.01);
 }
 
+.p-multiselect {
+    border-radius: 10px;
+    border: 1px solid var(--color-bg-primary);
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+    font-family: 'Outfit', sans-serif;
+}
+
+.p-multiselect .p-multiselect-label-container{
+    border-bottom-left-radius: 4.5px;
+    border-top-left-radius: 4.5px;
+}
+
+.p-multiselect-dropdown{
+    background-color: var(--color-bg-primary) !important;
+    border-bottom-right-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+}
+
+.p-multiselect:hover {
+    border: 3px solid var(--color-bg-primary);
+}
+
+.p-multiselect.p-inputwrapper-focus,
+.p-multiselect.p-multiselect-open {
+    border: 3px solid var(--color-bg-primary);
+    box-shadow: 0 0 0 0.2rem rgba(83, 104, 120, 0.2);
+}
+
+.p-multiselect.ng-invalid.ng-dirty.ng-touched {
+    border: #902009 3px solid;
+    background-color: #e5beb5;
+}
+
+.p-multiselect .p-multiselect-label {
+    color: var(--color-bg-primary);
+    background-color: var(--color-bg-secondary);
+}
+
+.p-multiselect .p-multiselect-label.p-placeholder {
+    color: rgba(83, 104, 120, 0.6);
+}
+
+.p-multiselect .p-multiselect-panel {
+    background-color: var(--color-bg-primary);  
+}
+
+.p-multiselect-token{
+    background-color: var(--color-bg-primary);
+}
+
+.p-multiselect .p-multiselect-token {
+    background-color: var(--color-bg-primary);
+    color: var(--color-bg-secondary);
+    border-radius: 6px;
+    padding: 0.25rem 0.5rem;
+}
+
+.p-multiselect .p-multiselect-token .p-multiselect-token-icon {
+    color: var(--color-bg-secondary);
+}
+
+.p-multiselect-header {
+    background-color: var(--color-bg-primary) !important;
+    border-bottom: 1px solid var(--color-bg-secondary);
+}
+
+.p-multiselect-option {
+    background-color: var(--color-bg-secondary) !important;
+    color: var(--color-bg-primary) !important;
+}
+
+.p-multiselect-option.p-highlight {
+    background-color: var(--color-bg-secondary) !important;
+    color: var(--color-bg-primary) !important;
+}
+
+.p-select{
+    background-color: var(--color-bg-primary);
+}
+
+.p-select .p-select-dropdown {
+    background-color: var(--color-bg-primary);
+}

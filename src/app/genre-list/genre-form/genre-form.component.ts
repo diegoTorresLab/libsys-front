@@ -66,7 +66,14 @@ export class GenreFormComponent implements OnChanges{
     }
 
     if(genre.idGenero){
-      const subscription = this.genreService.updateGenres(genre).subscribe({
+      this.updateGenre(genre);
+    }else{
+      this.createGenre(genre);
+    }
+  }
+
+  updateGenre(genre: Genre){
+    const subscription = this.genreService.updateGenres(genre).subscribe({
         next: () => {
           this.messageService.add({
             severity: 'success',
@@ -84,8 +91,10 @@ export class GenreFormComponent implements OnChanges{
         }
       });
       this.destroyRef.onDestroy(() => subscription.unsubscribe());
-    }else{
-      const subscription = this.genreService.createGenres(genre).subscribe({
+  }
+
+  createGenre(genre: Genre){
+    const subscription = this.genreService.createGenres(genre).subscribe({
         next: () => {
             this.messageService.add({
             severity: 'success',
@@ -102,10 +111,9 @@ export class GenreFormComponent implements OnChanges{
           });
         }
       });
-      this.destroyRef.onDestroy(() => subscription.unsubscribe())
-    }
+      this.destroyRef.onDestroy(() => subscription.unsubscribe());
   }
-
+  
   formIsInvalid(){
     return this.form.dirty && this.form.touched && this.form.invalid
   }

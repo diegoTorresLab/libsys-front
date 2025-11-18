@@ -7,7 +7,7 @@
         [value]="author"
         [paginator]="true"
         [rows]="10"
-        [globalFilterFields]="['ID','nombre', 'apellido', 'paisOrigen']"
+        [globalFilterFields]="['ID','nombreCompleto', 'paisOrigen']"
     >
     <ng-template #caption>
         <div class="filter flex justify-end p-2">
@@ -34,11 +34,8 @@
             <th>
                 ID 
             </th>
-            <th pSortableColumn="nombre">
-                Nombre <p-sortIcon field="nombre"></p-sortIcon>
-            </th>
-            <th pSortableColumn="apellido">
-                Apellido <p-sortIcon field="apellido"></p-sortIcon>
+            <th pSortableColumn="nombreCompleto">
+                Nombre Completo <p-sortIcon field="nombreCompleto"></p-sortIcon>
             </th>
             <th pSortableColumn="paisOrigen">
                 País de origen <p-sortIcon field="paisOrigen"></p-sortIcon>
@@ -49,8 +46,7 @@
     <ng-template #body let-author>
         <tr>
             <td>{{ author.idAutor }}</td>
-            <td>{{ author.nombre }}</td>
-            <td>{{ author.apellido }}</td>
+            <td>{{ author.nombreCompleto }}</td>
             <td>{{ author.paisOrigen }}</td>
             <td>
             <button 

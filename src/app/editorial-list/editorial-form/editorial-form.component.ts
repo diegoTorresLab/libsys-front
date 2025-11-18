@@ -86,7 +86,14 @@ export class EditorialFormComponent implements OnChanges{
     }
 
     if(editorial.idEditorial){
-      const subscription = this.editorialService.updateEditorials(editorial).subscribe({
+      this.updateEditorial(editorial)
+    } else {
+      this.createEditorial(editorial);
+    }
+  }
+
+  updateEditorial(editorial: Editorial){
+    const subscription = this.editorialService.updateEditorials(editorial).subscribe({
         next: () => {
             this.messageService.add({
             severity: 'success',
@@ -104,8 +111,10 @@ export class EditorialFormComponent implements OnChanges{
         }
       });
       this.destroyRef.onDestroy(() => subscription.unsubscribe());
-    } else {
-      const subscription = this.editorialService.createEditorials(editorial).subscribe({
+  }
+
+  createEditorial(editorial: Editorial){
+    const subscription = this.editorialService.createEditorials(editorial).subscribe({
         next: () => {
             this.messageService.add({
             severity: 'success',
@@ -122,8 +131,7 @@ export class EditorialFormComponent implements OnChanges{
           });
         }
       });
-      this.destroyRef.onDestroy(() => subscription.unsubscribe())
-    }
+      this.destroyRef.onDestroy(() => subscription.unsubscribe());
   }
 
   formIsInvalid(){

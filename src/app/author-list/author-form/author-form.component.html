@@ -24,25 +24,19 @@
 
             <div class="flex gap-2 control">
                 <div class="p-field field-vertical">
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" type="text" pInputText formControlName="nombre" />
+                    <label for="nombreCompleto">Nombre Completo</label>
+                    <input id="nombreCompleto" type="text" pInputText formControlName="nombreCompleto" />
                 </div>
-
                 <div class="p-field field-vertical">
-                    <label for="apellido">Apellido</label>
-                    <input id="apellido" type="text" pInputText formControlName="apellido" />
+                    <label for="paisOrigen">País de origen</label>
+                    <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
                 </div>
-            </div>
-
-            <div class="p-field field-vertical solo">
-                <label for="paisOrigen">País de origen</label>
-                <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
             </div>
 
             <div class="p-field field-vertical field-textarea">
-                <label for="biografia">Biografía</label> 
-                <textarea class="textarea" id="biografia" rows="6" pInputTextarea formControlName="biografia"></textarea>
-            </div>  
+                <label for="biografia">Biografía</label>
+                <textarea pInputTextarea class="textarea" id="biografia" rows="6" formControlName="biografia"></textarea>
+            </div>
 
             @if (formIsInvalid()) {
                 <div class="error">

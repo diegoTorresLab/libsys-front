@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bg-secondary);
+    width: 90%;
+    height: fit-content;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(31, 31, 31, 0.245);
+    font-family: 'Outfit', sans-serif;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+:host .card{
+    width: 100%;
+}

@@ -1,0 +1,108 @@
+<p-dialog
+    [(visible)]="visible"
+    [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+    [style]="{ width: '70vw' }"
+    [draggable]="false"
+    [resizable]="false"
+    header="{{ selectedBook ? 'Actualizar Libro' : 'Nuevo Libro'}}"
+    (onHide)="closedDialog()"
+>
+    <div class="card">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="flex gap-2 control">
+                <div class="p-field field-vertical">
+                    <label for="idLibro">ID Libro</label>
+                    <input id="idLibro" type="text" pInputText formControlName="idLibro" [disabled]="true" class="p-disabled"/>
+                </div>
+
+                <div class="p-field field-vertical">
+                    <label for="fechaRegistro">Fecha de registro</label>
+                    <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
+                </div>
+            </div>
+
+            <div class="p-field field-vertical solo">
+                    <label for="titulo">Titulo</label>
+                    <input id="titulo" type="text" pInputText formControlName="titulo"/>
+            </div>
+
+            <div class="flex gap-3 control">
+                <div class="p-field field-vertical">
+                    <label for="autores">Autores</label>
+                    <p-multiselect 
+                        [options]="authors"
+                        formControlName="autores"
+                        optionLabel="nombreCompleto"
+                        placeholder="Selecciona autores"
+                        display="chip"
+                        [maxSelectedLabels]="3"
+                        styleClass="w-full md:w-80">
+                        <ng-template let-authors pTemplate="item">
+                            {{ authors.nombreCompleto}}
+                        </ng-template>
+                    </p-multiselect>
+                </div>
+                <div class="p-field field-vertical">
+                    <label for="editoriales">Editoriales</label>
+                    <p-select 
+                        formControlName="editorial" 
+                        [options]="editorials"
+                        optionLabel="nombre"
+                        optionValue="idEditorial"
+                        placeholder="Selecciona una editorial" 
+                        class="w-full md:w-56" />
+                </div>
+                <div class="p-field field-vertical">
+                    <label for="generos">Generos</label>
+                    <p-multiselect 
+                        [options]="genres"
+                        formControlName="generos"
+                        optionLabel="nombre"
+                        placeholder="Selecciona géneros"
+                        display="chip"
+                        [maxSelectedLabels]="3"
+                        styleClass="w-full md:w-80">
+                            <ng-template let-genres pTemplate="item">
+                                {{genres.nombre}}
+                        </ng-template>
+                    </p-multiselect>
+                </div>
+            </div>
+
+            <div class="flex gap-3 control">
+                <div class="p-field field-vertical">
+                    <label for="isbn">ISBN</label>
+                    <input id="isbn" type="text" pInputText formControlName="isbn"/>
+                </div>
+                <div class="p-field field-vertical">
+                    <label for="anioPublicacion">Año de Publicación</label>
+                    <input id="anioPublicacion" type="number" pInputText formControlName="anioPublicacion"/>
+                </div>
+                <div class="p-field field-vertical">
+                    <label for="idioma">Idioma</label>
+                    <input id="idioma" type="text" pInputText formControlName="idioma"/>
+                </div>
+            </div>
+
+            <div class="p-field field-vertical solo">
+                <label for="tipoMaterial">Material</label>
+                <input id="tipoMaterial" type="text" pInputText formControlName="tipoMaterial" />
+            </div>
+            <div class="p-field field-vertical field-textarea">
+                <label for="descripcion">Descripción</label> 
+                <textarea class="descripcion" id="biografia" rows="6" pInputTextarea formControlName="descripcion"></textarea>
+            </div> 
+
+            @if (formIsInvalid()) {
+                <div class="error">
+                    <p>El formulario contiene campos inválidos o incompletos. Por favor revisa los datos antes de continuar.</p>
+                </div>
+            }
+            <div class="p-dialog-footer flex justify-end gap-2">
+                <button pButton type="button" label="Cancelar" class="p-button-secondary" (click)="closedDialog()"></button>
+                <button pButton type="submit" label="Guardar" class="p-button-primary"></button>
+            </div>
+        </form>
+    </div>
+</p-dialog>

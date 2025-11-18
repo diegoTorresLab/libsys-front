@@ -1,0 +1,51 @@
+:host ::ng-deep .p-dialog {
+    background-color: var(--color-bg-primary);
+}
+
+:host .field-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+:host .field-vertical label {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+:host .solo {
+    width: 87%;
+    margin-top: 0.5rem;
+    margin-left: 3.8rem;
+}
+
+:host .control {
+    margin: 0.5rem 3.8rem 0 3.8rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+:host .card {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-bg-primary);
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+:host .field-textarea,
+:host .field-textarea .p-inputtextarea {
+    margin: 0.5rem 3.8rem 0 3.8rem;
+}
+
+:host textarea {
+    border-radius: 9px;
+    width: 100%;
+    border: 1px solid var(--color-bg-primary);
+    color: var(--color-bg-primary);
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--color-bg-secondary);
+}
+
+:host textarea:hover {
+    border: 3px solid var(--color-bg-primary);
+}

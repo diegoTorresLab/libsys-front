@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { Author } from '../author.model';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputTextarea } from 'primeng/inputtextarea';
 @Component({
   selector: 'app-author-form',
 
@@ -22,7 +23,8 @@ import { InputTextModule } from 'primeng/inputtext';
     ToastModule,
     RouterModule,
     DialogModule,
-    InputTextModule
+    InputTextModule,
+    InputTextarea
   ],
   templateUrl: './author-form.component.html',
   styleUrl: './author-form.component.css',
@@ -38,10 +40,7 @@ export class AuthorFormComponent implements OnChanges {
 
   form = new FormGroup({
     idAutor: new FormControl<string | null>({value: null, disabled: true}),
-    nombre: new FormControl('', {
-      validators: [Validators.required, Validators.minLength(2)],
-    }),
-    apellido: new FormControl('', {
+    nombreCompleto: new FormControl('', {
       validators: [Validators.required, Validators.minLength(2)],
     }),
     paisOrigen: new FormControl('', {
@@ -72,16 +71,22 @@ export class AuthorFormComponent implements OnChanges {
     const formValue = this.form.getRawValue();
 
     const author: Author = {
-    idAutor: formValue.idAutor ?? null,
-    nombre: formValue.nombre ?? '',
-    apellido: formValue.apellido ?? '',
-    paisOrigen: formValue.paisOrigen ?? '',
-    biografia: formValue.biografia ?? '',
-    fechaRegistro: formValue.fechaRegistro ?? null
-  }
+      idAutor: formValue.idAutor ?? null,
+      nombreCompleto: formValue.nombreCompleto ?? '',
+      paisOrigen: formValue.paisOrigen ?? '',
+      biografia: formValue.biografia ?? '',
+      fechaRegistro: formValue.fechaRegistro ?? null
+    }
 
     if(author.idAutor){
-      const subscription = this.authorService.updateAuthors(author).subscribe({
+      this.updateAuthor(author);
+    } else {
+      this.createAuthor(author);
+    }
+  }
+
+  updateAuthor(author: Author){
+    const subscription = this.authorService.updateAuthors(author).subscribe({
         next: () => {
             this.messageService.add({
             severity: 'success',
@@ -99,8 +104,10 @@ export class AuthorFormComponent implements OnChanges {
         }
       });
       this.destroyRef.onDestroy(() => subscription.unsubscribe());
-    } else {
-      const subscription = this.authorService.createAuthors(author).subscribe({
+  }
+
+  createAuthor(author: Author){
+    const subscription = this.authorService.createAuthors(author).subscribe({
         next: () => {
             this.messageService.add({
             severity: 'success',
@@ -118,8 +125,8 @@ export class AuthorFormComponent implements OnChanges {
         }
       });
       this.destroyRef.onDestroy(() => subscription.unsubscribe());
-    }
   }
+  
 
   formIsInvalid() {
     return this.form.dirty && this.form.touched && this.form.invalid;
