@@ -10,7 +10,6 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { BookFormComponent } from './book-form/book-form.component';
-import { BookCardComponent } from './book-card/book-card.component';
 
 @Component({
   selector: 'app-book-list',
