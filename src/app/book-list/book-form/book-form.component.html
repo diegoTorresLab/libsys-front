@@ -10,21 +10,47 @@
 >
     <div class="card">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="flex gap-2 control">
+            <div class="flex gap-3 control">
                 <div class="p-field field-vertical">
                     <label for="idLibro">ID Libro</label>
-                    <input id="idLibro" type="text" pInputText formControlName="idLibro" [disabled]="true" class="p-disabled"/>
+                    <input 
+                        id="idLibro" 
+                        type="text" 
+                        pInputText 
+                        formControlName="idLibro" 
+                        [disabled]="true" 
+                        class="p-disabled"/>
                 </div>
-
                 <div class="p-field field-vertical">
                     <label for="fechaRegistro">Fecha de registro</label>
-                    <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
+                    <input 
+                        id="fechaRegistro" 
+                        type="text" 
+                        pInputText 
+                        formControlName="fechaRegistro" 
+                        [disabled]="true" 
+                        class="p-disabled"/>
+                </div>
+                <div class="p-field field-vertical">
+                    <label for="anioPublicacion">Año de Publicación</label>
+                    <input id="anioPublicacion" 
+                        type="number" 
+                        pInputText 
+                        formControlName="anioPublicacion"
+                        placeholder="Ej. 2000"
+                        autocomplete="off"/>
                 </div>
             </div>
 
             <div class="p-field field-vertical solo">
-                    <label for="titulo">Titulo</label>
-                    <input id="titulo" type="text" pInputText formControlName="titulo"/>
+                <label for="titulo">Titulo</label>
+                <input 
+                    id="titulo" 
+                    type="text" 
+                    pInputText 
+                    formControlName="titulo"
+                    placeholder="Ej. Cien años de soledad"
+                    autocomplete="off"/>
             </div>
 
             <div class="flex gap-3 control">
@@ -34,12 +60,13 @@
                         [options]="authors"
                         formControlName="autores"
                         optionLabel="nombreCompleto"
+                        optionValue="idAutor"
                         placeholder="Selecciona autores"
                         display="chip"
                         [maxSelectedLabels]="3"
                         styleClass="w-full md:w-80">
                         <ng-template let-authors pTemplate="item">
-                            {{ authors.nombreCompleto}}
+                            {{authors.nombreCompleto}}
                         </ng-template>
                     </p-multiselect>
                 </div>
@@ -59,39 +86,70 @@
                         [options]="genres"
                         formControlName="generos"
                         optionLabel="nombre"
+                        optionValue="idGenero"
                         placeholder="Selecciona géneros"
                         display="chip"
                         [maxSelectedLabels]="3"
                         styleClass="w-full md:w-80">
-                            <ng-template let-genres pTemplate="item">
-                                {{genres.nombre}}
+                        <ng-template let-genres pTemplate="item">
+                            {{genres.nombre}}
                         </ng-template>
                     </p-multiselect>
                 </div>
             </div>
 
-            <div class="flex gap-3 control">
+            <div class="flex gap-2 control">
                 <div class="p-field field-vertical">
-                    <label for="isbn">ISBN</label>
-                    <input id="isbn" type="text" pInputText formControlName="isbn"/>
-                </div>
-                <div class="p-field field-vertical">
-                    <label for="anioPublicacion">Año de Publicación</label>
-                    <input id="anioPublicacion" type="number" pInputText formControlName="anioPublicacion"/>
+                    <label for="isbn">ISBN-13</label>
+                    <input 
+                        id="isbn" 
+                        type="text" 
+                        pInputText 
+                        formControlName="isbn"
+                        placeholder="978-6070728792"
+                        autocomplete="off"/>
                 </div>
                 <div class="p-field field-vertical">
                     <label for="idioma">Idioma</label>
-                    <input id="idioma" type="text" pInputText formControlName="idioma"/>
+                    <input 
+                        id="idioma" 
+                        type="text" 
+                        pInputText 
+                        formControlName="idioma"
+                        placeholder="Ej. Español"
+                        autocomplete="off"/>
+                </div>
+                <div class="p-field field-vertical">
+                    <label for="numPaginas">No. de Paginas</label>
+                    <input 
+                        id="isbn" 
+                        type="number" 
+                        pInputText 
+                        formControlName="numPaginas"
+                        autocomplete="off"/>
                 </div>
             </div>
 
             <div class="p-field field-vertical solo">
                 <label for="tipoMaterial">Material</label>
-                <input id="tipoMaterial" type="text" pInputText formControlName="tipoMaterial" />
+                <input 
+                    id="tipoMaterial" 
+                    type="text" 
+                    pInputText 
+                    formControlName="tipoMaterial"
+                    placeholder="Ej. Novela"
+                    autocomplete="off"/>
             </div>
             <div class="p-field field-vertical field-textarea">
                 <label for="descripcion">Descripción</label> 
-                <textarea class="descripcion" id="biografia" rows="6" pInputTextarea formControlName="descripcion"></textarea>
+                <textarea 
+                    class="descripcion" 
+                    id="biografia" 
+                    rows="6" 
+                    pInputTextarea 
+                    formControlName="descripcion"
+                    placeholder="Argumento, temas principales y contexto…"
+                    autocomplete="off"></textarea>
             </div> 
 
             @if (formIsInvalid()) {

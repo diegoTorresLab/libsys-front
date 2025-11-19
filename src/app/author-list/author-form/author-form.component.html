@@ -13,29 +13,60 @@
             <div class="flex gap-2 control">
                 <div class="p-field field-vertical">
                     <label for="idAutor">ID Autor</label>
-                    <input id="idAutor" type="text" pInputText formControlName="idAutor" [disabled]="true" class="p-disabled"/>
+                    <input 
+                        id="idAutor" 
+                        type="text" 
+                        pInputText 
+                        formControlName="idAutor" 
+                        [disabled]="true" 
+                        class="p-disabled"/>
                 </div>
 
                 <div class="p-field field-vertical">
                     <label for="fechaRegistro">Fecha de registro</label>
-                    <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
+                    <input 
+                        id="fechaRegistro" 
+                        type="text" 
+                        pInputText 
+                        formControlName="fechaRegistro" 
+                        [disabled]="true" 
+                        class="p-disabled"
+                        />
                 </div>
             </div>
 
             <div class="flex gap-2 control">
                 <div class="p-field field-vertical">
                     <label for="nombreCompleto">Nombre Completo</label>
-                    <input id="nombreCompleto" type="text" pInputText formControlName="nombreCompleto" />
+                    <input 
+                        id="nombreCompleto" 
+                        type="text" 
+                        pInputText 
+                        formControlName="nombreCompleto"
+                        placeholder="Ej. Gabriel García Márquez"
+                        autocomplete="off"/>
                 </div>
                 <div class="p-field field-vertical">
                     <label for="paisOrigen">País de origen</label>
-                    <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
+                    <input 
+                        id="paisOrigen" 
+                        type="text" 
+                        pInputText formControlName="paisOrigen" 
+                        placeholder="Ej. Colombia"
+                        autocomplete="off"/>
                 </div>
             </div>
 
             <div class="p-field field-vertical field-textarea">
                 <label for="biografia">Biografía</label>
-                <textarea pInputTextarea class="textarea" id="biografia" rows="6" formControlName="biografia"></textarea>
+                <textarea 
+                    pInputTextarea 
+                    class="descripcion" 
+                    id="biografia" 
+                    rows="6" 
+                    formControlName="biografia"
+                    placeholder="Trayectoria, premios e información relevante…"
+                    autocomplete="off"></textarea>
             </div>
 
             @if (formIsInvalid()) {

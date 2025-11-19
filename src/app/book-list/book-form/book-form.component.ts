@@ -51,7 +51,7 @@ export class BookFormComponent implements OnChanges, OnInit{
   form = new FormGroup({
     idLibro: new FormControl<string | null> ({value: null, disabled: true}),
     titulo: new FormControl('', {
-      validators: [Validators.required, Validators.minLength(5)],
+      validators: [Validators.required],
     }),
     isbn: new FormControl('', {
       validators: [Validators.required, Validators.minLength(13)],
@@ -61,7 +61,7 @@ export class BookFormComponent implements OnChanges, OnInit{
       validators: [Validators.required]
     }),
     idioma: new FormControl('', {
-      validators: [Validators.required, Validators.minLength(5)],
+      validators: [Validators.required],
     }),
     descripcion: new FormControl('', {
       validators: [Validators.required],
@@ -73,10 +73,10 @@ export class BookFormComponent implements OnChanges, OnInit{
     numPaginas: new FormControl<number | null>(null, {
       validators: [Validators.required],
     }),
-    autores: new FormControl<Author[]>([], {
+    autores: new FormControl<string[]>([], {
       validators: [Validators.required],
     }),
-    generos: new FormControl<Genre[]>([], {
+    generos: new FormControl<string[]>([], {
       validators: [Validators.required],
     }),
   });
@@ -94,6 +94,8 @@ export class BookFormComponent implements OnChanges, OnInit{
         this.form.patchValue({
           ...book,
           editorial: book.editorial?.idEditorial ?? null,
+          autores: book.autores?.map((a: any) => a.idAutor) ?? [],
+          generos: book.generos?.map((g: any) => g.idGenero) ?? [],
         });
       }else{
         this.form.reset();
@@ -108,9 +110,13 @@ export class BookFormComponent implements OnChanges, OnInit{
     }
 
     const formValue = this.form.getRawValue();
-
+    
     const editorialSeleccionada =
-      this.editorials.find(e => e.idEditorial === formValue.editorial) ?? null;
+      this.editorials.find((e) => e.idEditorial === formValue.editorial) ?? null;
+    const autoresSeleccionados: Author[] = 
+      this.authors.filter((a) => formValue.autores?.includes((a as any).idAutor))
+    const generosSeleccionados: Genre[] = 
+      this.genres.filter(g => formValue.generos?.includes((g as any).idGenero));
 
     const book: Book = {
       idLibro: formValue.idLibro ?? null,
@@ -123,8 +129,8 @@ export class BookFormComponent implements OnChanges, OnInit{
       tipoMaterial: formValue.tipoMaterial ?? '',
       fechaRegistro: formValue.fechaRegistro ?? null,
       numPaginas: formValue.numPaginas ?? null, 
-      autores: formValue.autores ?? [],
-      generos: formValue.generos ?? [],
+      autores: autoresSeleccionados,
+      generos: generosSeleccionados,
     }
 
     if(book.idLibro){
@@ -225,7 +231,7 @@ export class BookFormComponent implements OnChanges, OnInit{
   }
 
   formIsInvalid(){
-    return this.form.invalid;
+    return this.form.invalid&&this.form.dirty&&this.form.touched;
   }
 
   closedDialog(){

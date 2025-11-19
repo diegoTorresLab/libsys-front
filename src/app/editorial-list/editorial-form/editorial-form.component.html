@@ -13,42 +13,84 @@
             <div class="flex gap-2 control">
                 <div class="p-field field-vertical">
                     <label for="idEditorial">ID Editorial</label>
-                    <input id="idEditorial" type="text" pInputText formControlName="idEditorial" [disabled]="true" class="p-disabled"/>
+                    <input 
+                        id="idEditorial" 
+                        type="text" 
+                        pInputText 
+                        formControlName="idEditorial" 
+                        [disabled]="true" 
+                        class="p-disabled"/>
                 </div>
 
                 <div class="p-field field-vertical">
                     <label for="fechaRegistro">Fecha de registro</label>
-                    <input id="fechaRegistro" type="text" pInputText formControlName="fechaRegistro" [disabled]="true" class="p-disabled"/>
+                    <input 
+                        id="fechaRegistro" 
+                        type="text" 
+                        pInputText 
+                        formControlName="fechaRegistro" 
+                        [disabled]="true" 
+                        class="p-disabled"/>
                 </div>
             </div>
 
             <div class="flex gap-2 control">
                 <div class="p-field field-vertical">
                     <label for="nombre">Nombre</label>
-                    <input id="nombre" type="text" pInputText formControlName="nombre" />
+                    <input 
+                        id="nombre" 
+                        type="text" 
+                        pInputText 
+                        formControlName="nombre" 
+                        placeholder="Ej. Editorial Oceano"
+                        autocomplete="off"/>
                 </div>
 
                 <div class="p-field field-vertical">
                     <label for="sitioWeb">Sitio Web</label>
-                    <input id="sitioWeb" type="text" pInputText formControlName="sitioWeb" />
+                    <input 
+                        id="sitioWeb"  
+                        type="text" 
+                        pInputText 
+                        formControlName="sitioWeb"
+                        placeholder="Ej. www.editorialoceano.com"
+                        autocomplete="off"/>
                 </div>
             </div>
 
             <div class="flex gap-2 control">
                 <div class="p-field field-vertical">
                     <label for="email">Email</label>
-                    <input id="email" type="text" pInputText formControlName="email" />
+                    <input 
+                        id="email" 
+                        type="text" 
+                        pInputText 
+                        formControlName="email"
+                        placeholder="Ej. editorialoceano@gmail.com"
+                        autocomplete="off"/>
                 </div>
 
                 <div class="p-field field-vertical">
                     <label for="telefono">Número de Telefono</label>
-                    <input id="telefono" type="text" pInputText formControlName="telefono" />
+                    <input 
+                        id="telefono" 
+                        type="text" 
+                        pInputText 
+                        formControlName="telefono" 
+                        placeholder="Numero de telefono"
+                        autocomplete="off"/>
                 </div>
             </div>
 
             <div class="p-field field-vertical solo">
                 <label for="paisOrigen">País de origen</label>
-                <input id="paisOrigen" type="text" pInputText formControlName="paisOrigen" />
+                <input 
+                    id="paisOrigen" 
+                    type="text" 
+                    pInputText 
+                    formControlName="paisOrigen"
+                    placeholder="Ej. Colombia"
+                    autocomplete="off"/>
             </div>
 
             @if (formIsInvalid()) {

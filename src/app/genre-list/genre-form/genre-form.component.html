@@ -13,12 +13,24 @@
             <div class="flex gap-2 control">
                 <div class="p-field field-vertical">
                     <label for="idGenero">ID Genero</label>
-                    <input id="idGenero" type="text" pInputText formControlName="idGenero" [disabled]="true" class="p-disabled"/>
+                    <input 
+                        id="idGenero" 
+                        type="text" 
+                        pInputText 
+                        formControlName="idGenero" 
+                        [disabled]="true" 
+                        class="p-disabled"/>
                 </div>
 
                 <div class="p-field field-vertical">
                     <label for="nombre">Nombre</label>
-                    <input id="nombre" type="text" pInputText formControlName="nombre"/>
+                    <input 
+                        id="nombre" 
+                        type="text" 
+                        pInputText 
+                        formControlName="nombre"
+                        placeholder="Ej. Realismo Magico"
+                        autocomplete="off"/>
                 </div>
             </div>
 
