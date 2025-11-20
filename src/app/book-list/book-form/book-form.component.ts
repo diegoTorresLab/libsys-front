@@ -11,12 +11,24 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { Select } from 'primeng/select';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Author } from '../../author-list/author.model';
 import { Genre } from '../../genre-list/genre.model';
 import { EditorialService } from '../../editorial-list/editorial.service';
 import { Editorial } from '../../editorial-list/editorial.model';
 
+function verifyReleaseYear(control: AbstractControl){
+  const currentYear = new Date().getFullYear();
+  if(!control.value){
+    return null;
+  }
+
+  if(control.value > currentYear){
+    return { invalidYear: true }
+  }
+
+  return null;
+}
 @Component({
   selector: 'app-book-form',
   imports: [
@@ -58,7 +70,7 @@ export class BookFormComponent implements OnChanges, OnInit{
     }),
     editorial: new FormControl<string | null>(null, Validators.required),
     anioPublicacion: new FormControl<number | null>(null, {
-      validators: [Validators.required]
+      validators: [Validators.required, verifyReleaseYear]
     }),
     idioma: new FormControl('', {
       validators: [Validators.required],
@@ -111,6 +123,7 @@ export class BookFormComponent implements OnChanges, OnInit{
 
     const formValue = this.form.getRawValue();
     
+
     const editorialSeleccionada =
       this.editorials.find((e) => e.idEditorial === formValue.editorial) ?? null;
     const autoresSeleccionados: Author[] = 
@@ -118,6 +131,7 @@ export class BookFormComponent implements OnChanges, OnInit{
     const generosSeleccionados: Genre[] = 
       this.genres.filter(g => formValue.generos?.includes((g as any).idGenero));
 
+      
     const book: Book = {
       idLibro: formValue.idLibro ?? null,
       titulo: formValue.titulo ?? '',
