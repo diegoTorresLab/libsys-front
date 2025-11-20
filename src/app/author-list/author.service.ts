@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Author } from './author.model';
 
@@ -10,14 +10,14 @@ export class AuthorService {
 
   private apiUrl = 'http://localhost:8080/autor';
 
-  constructor(private http:HttpClient) {}
+  private http = inject(HttpClient);
 
   createAuthors(author:Author): Observable<Author>{
     return this.http.post<Author>(this.apiUrl, author);
   }
 
-  updateAuthors(author:Author){
-    return this.http.put(this.apiUrl, author);
+  updateAuthors(author:Author): Observable<Author>{
+    return this.http.put<Author>(this.apiUrl, author);
   }
 
   getAuthors(): Observable<Author[]>{
