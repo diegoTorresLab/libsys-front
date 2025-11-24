@@ -93,12 +93,6 @@ export class BookFormComponent implements OnChanges, OnInit{
     }),
   });
 
-  ngOnInit(): void {
-    this.getAuthors();
-    this.getGenres();
-    this.getEditorials();
-  }
-
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['selectedBook']){
       const book = changes['selectedBook'].currentValue; 
@@ -113,6 +107,12 @@ export class BookFormComponent implements OnChanges, OnInit{
         this.form.reset();
       }
     }
+  }
+
+  ngOnInit(): void {
+    this.getAuthors();
+    this.getGenres();
+    this.getEditorials();
   }
 
   onSubmit(){
