@@ -2,6 +2,49 @@
     ESTILOS DE FORMULARIOS
 -------------------------------------------------- */
 
+.p-dialog {
+    background-color: var(--color-bg-primary) !important;
+}
+
+.p-dialog .p-dialog-header {
+    background-color: var(--color-bg-primary) !important;
+    color: var(--color-bg-secondary) !important;
+}
+
+.p-dialog .p-dialog-content {
+    background-color: var(--color-bg-secondary) !important;
+    color: var(--color-bg-primary);
+}
+
+.p-dialog .p-dialog-footer {
+    background-color: var(--color-bg-secondary) !important;
+    border-top: none;
+}
+
+.p-dialog .p-dialog-close-button,
+.p-dialog .p-dialog-header-close {
+    color: var(--color-bg-secondary) !important;
+}
+
+.p-dialog .p-dialog-close-button:hover,
+.p-dialog .p-dialog-header-close:hover {
+    background-color: rgba(234, 224, 200, 0.15) !important;
+    color: var(--color-bg-secondary) !important;
+}
+
+.p-confirmdialog .p-dialog-content {
+    padding-top: 1rem;
+}
+
+.p-confirmdialog-icon {
+    font-size: 2rem;
+    color: var(--color-bg-primary) !important;
+}
+
+.p-confirmdialog-message {
+    color: var(--color-bg-primary);
+}
+
 .p-dialog .p-inputtext{
     border-radius: 9px;
     border: 1px solid var(--color-bg-primary);
@@ -24,10 +67,6 @@
     background-color: #d8c9a8 !important;
     color: #53585c !important;
     border: 2px solid var(--color-bg-primary);
-}
-
-.p-dialog .p-dialog-header {
-    color: var(--color-bg-secondary);
 }
 
 .p-dialog .p-button {
@@ -71,4 +110,145 @@
     color: var(--color-success);
     border: 2px solid var(--color-success);
     transform: scale(1.01);
+}
+
+/* --------------------------------------------------
+    p-multiselect y p-select (formulario de libro)
+-------------------------------------------------- */
+
+/* ---- Trigger ---- */
+.p-dialog .p-multiselect,
+.p-dialog .p-select {
+    background-color: var(--color-bg-secondary) !important;
+    border: 1px solid var(--color-bg-primary) !important;
+    border-radius: 9px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.p-dialog .p-multiselect:hover,
+.p-dialog .p-select:hover {
+    border: 3px solid var(--color-bg-primary) !important;
+}
+
+.p-dialog .p-multiselect .p-multiselect-label,
+.p-dialog .p-select .p-select-label {
+    color: var(--color-bg-primary) !important;
+    font-family: 'Outfit', sans-serif;
+}
+
+.p-dialog .p-multiselect .p-multiselect-label.p-placeholder,
+.p-dialog .p-select .p-select-label.p-placeholder {
+    color: var(--color-bg-primary) !important;
+}
+
+.p-dialog .p-multiselect .p-multiselect-dropdown,
+.p-dialog .p-select .p-select-dropdown {
+    color: var(--color-bg-primary) !important;
+}
+
+/* Chips de los ítems seleccionados en multiselect */
+.p-dialog .p-multiselect .p-chip {
+background-color: var(--color-bg-primary) !important;
+    color: var(--color-bg-secondary) !important;
+}
+
+/* ---- Panel overlay: p-multiselect ---- */
+.p-multiselect-overlay,
+.p-multiselect-panel {
+    background-color: var(--color-bg-secondary) !important;
+    border: 1px solid var(--color-bg-primary) !important;
+    border-radius: 9px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.p-multiselect-header {
+    background-color: var(--color-bg-primary) !important;
+    color: var(--color-bg-secondary) !important;
+    border-radius: 7px 7px 0 0;
+}
+
+.p-multiselect-filter-input {
+    background-color: var(--color-bg-secondary) !important;
+    color: var(--color-bg-primary) !important;
+    border: 1px solid var(--color-bg-primary) !important;
+    border-radius: 6px;
+}
+
+.p-multiselect-option,
+.p-multiselect-item {
+    color: var(--color-bg-primary) !important;
+    font-family: 'Outfit', sans-serif;
+}
+
+.p-multiselect-option:hover,
+.p-multiselect-item:hover,
+.p-multiselect-option.p-focus,
+.p-multiselect-item.p-focus {
+    background-color: var(--color-bg-primary) !important;
+    color: var(--color-bg-secondary) !important;
+}
+
+.p-multiselect-option.p-selected,
+.p-multiselect-option.p-highlight,
+.p-multiselect-item.p-highlight {
+    background-color: rgba(83, 104, 120, 0.2) !important;
+    color: var(--color-bg-primary) !important;
+}
+
+/* Checkboxes dentro del panel multiselect */
+.p-multiselect-overlay .p-checkbox-box,
+.p-multiselect-panel .p-checkbox-box {
+    background-color: var(--color-bg-secondary) !important;
+    border: 2px solid var(--color-bg-primary) !important;
+    border-radius: 4px;
+}
+
+.p-multiselect-overlay .p-checkbox-box.p-highlight,
+.p-multiselect-panel .p-checkbox-box.p-highlight,
+.p-multiselect-overlay .p-checkbox.p-checkbox-checked .p-checkbox-box,
+.p-multiselect-panel .p-checkbox.p-checkbox-checked .p-checkbox-box {
+    background-color: var(--color-bg-primary) !important;
+    border-color: var(--color-bg-primary) !important;
+}
+
+.p-multiselect-overlay .p-checkbox-box .p-checkbox-icon,
+.p-multiselect-panel .p-checkbox-box .p-checkbox-icon,
+.p-multiselect-overlay .p-checkbox.p-checkbox-checked .p-checkbox-icon,
+.p-multiselect-panel .p-checkbox.p-checkbox-checked .p-checkbox-icon {
+    color: var(--color-bg-secondary) !important;
+}
+
+/* ---- Panel overlay: p-select ---- */
+.p-select-overlay,
+.p-select-panel,
+.p-dropdown-panel {
+    background-color: var(--color-bg-secondary) !important;
+    border: 1px solid var(--color-bg-primary) !important;
+    border-radius: 9px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.p-select-option,
+.p-select-item,
+.p-dropdown-item {
+    color: var(--color-bg-primary) !important;
+    font-family: 'Outfit', sans-serif;
+}
+
+.p-select-option:hover,
+.p-select-item:hover,
+.p-dropdown-item:hover,
+.p-select-option.p-focus,
+.p-select-item.p-focus,
+.p-dropdown-item.p-focus {
+    background-color: var(--color-bg-primary) !important;
+    color: var(--color-bg-secondary) !important;
+}
+
+.p-select-option.p-selected,
+.p-select-option.p-highlight,
+.p-select-item.p-highlight,
+.p-dropdown-item.p-highlight {
+    background-color: rgba(83, 104, 120, 0.2) !important;
+    color: var(--color-bg-primary) !important;
 }
