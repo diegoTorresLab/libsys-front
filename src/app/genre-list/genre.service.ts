@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class GenreService {
 
-  private apiUrl = 'http://localhost:8080/genero'
+  private apiUrl = 'http://localhost:8081/genero'
 
   private http = inject(HttpClient)
 

@@ -8,7 +8,7 @@ import { Author } from './author.model';
 })
 export class AuthorService {
 
-  private apiUrl = 'http://localhost:8080/autor';
+  private apiUrl = 'http://localhost:8081/autor';
 
   private http = inject(HttpClient);
 

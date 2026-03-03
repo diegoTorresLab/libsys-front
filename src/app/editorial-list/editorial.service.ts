@@ -8,7 +8,7 @@ import { Editorial } from './editorial.model';
 })
 export class EditorialService {
 
-  private apiUrl = 'http://localhost:8080/editorial'
+  private apiUrl = 'http://localhost:8081/editorial'
 
   private http = inject(HttpClient)
 

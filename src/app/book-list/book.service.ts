@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class BookService {
 
-  private apiUrl = 'http://localhost:8080/libro'
+  private apiUrl = 'http://localhost:8081/libro'
 
   private http = inject(HttpClient)
 
